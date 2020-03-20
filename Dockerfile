@@ -15,3 +15,4 @@ WORKDIR /usr/src/app
 
 RUN bundle install
 RUN rails webpacker:install
+RUN rails webpacker:install:react
