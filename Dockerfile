@@ -27,7 +27,6 @@ RUN npm -v
 # are made.
 COPY Gemfile Gemfile.lock package.json yarn.lock ./
 RUN gem install bundler -v 1.17.2
-RUN gem install foreman -v 0.85.0
 RUN bundle install --verbose --jobs 20 --retry 5
 
 RUN npm install -g yarn
