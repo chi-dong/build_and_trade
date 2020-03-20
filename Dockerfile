@@ -16,3 +16,5 @@ WORKDIR /usr/src/app
 RUN bundle install
 RUN rails webpacker:install
 RUN rails webpacker:install:react
+
+CMD ["bin/rails", "s", "-b", "0.0.0.0"]
