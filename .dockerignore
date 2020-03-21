@@ -7,3 +7,6 @@ log/*
 
 # Temp files​
 tmp/*
+
+#VS code
+.vscode/*
