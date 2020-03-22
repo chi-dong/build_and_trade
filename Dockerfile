@@ -27,6 +27,9 @@ RUN npm -v
 # are made.
 COPY Gemfile Gemfile.lock package.json yarn.lock ./
 RUN gem install bundler -v 1.17.2
+
+ENV BUNDLE_PATH /gems
+
 RUN bundle install --verbose --jobs 20 --retry 5
 
 RUN npm install -g yarn
