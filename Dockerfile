@@ -1,6 +1,6 @@
 FROM ruby:2.6.5
 
-LABEL maintainer=​"chidong.ly@gmail.com"​
+LABEL maintainer="chidong.ly@gmail.com"
 
 # replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -15,7 +15,7 @@ RUN mkdir -p /usr/src/app/
 RUN mkdir -p /usr/local/nvm
 WORKDIR /usr/src/app/
 
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs
 
 RUN node -v
@@ -25,12 +25,9 @@ RUN npm -v
 # the RubyGems. This is a separate step so the dependencies
 # will be cached unless changes to one of those two files
 # are made.
-COPY Gemfile Gemfile.lock package.json yarn.lock ./
-RUN gem install bundler -v 1.17.2
+COPY Gemfile* package.json yarn.lock /usr/src/app/
 
-ENV BUNDLE_PATH /gems
-
-RUN bundle install --verbose --jobs 20 --retry 5
+RUN bundle install
 
 RUN npm install -g yarn
 RUN yarn install --check-files
