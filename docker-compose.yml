@@ -15,6 +15,15 @@ services:
     env_file:
       - .env/development/web
       - .env/development/database
+
+  webpacker:
+    build: .
+    command: ./bin/webpack-dev-server
+    volumes:
+      - '.:/usr/src/app/'
+      - gem_cache:/gems
+    ports:
+      - 3035:3035
       
   redis:
     image: redis
