@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'pc_wars/index'
   devise_for :users
   resources :games
 
