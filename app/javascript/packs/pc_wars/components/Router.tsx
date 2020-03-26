@@ -8,7 +8,7 @@ export default function Router() {
     <>
       <Switch>
         {/* Basic Content */}
-        <Route exact path="/pc_wars/index">
+        <Route exact path="/pc_wars">
           <IndexScreen />
         </Route>
 

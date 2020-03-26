@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'pc_wars/index'
+  get 'pc_wars(/:path)', to: 'pc_wars#index', as: 'pc_wars'
   devise_for :users
   resources :games
 
